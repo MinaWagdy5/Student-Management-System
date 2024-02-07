@@ -5,6 +5,7 @@ from PySide2 import QtCore
 from PySide2.QtGui import QColor
 from PySide2.QtWidgets import *
 
+import Test2
 # GUI FILE
 from ui_splash_screen import Ui_SplashScreen
 
@@ -76,7 +77,10 @@ class SplashScreen(QMainWindow):
             self.timer.stop()
 
             # SHOW MAIN WINDOW
-            #self.main = MainWindow()######################TODO
+            self.main = Test2.QtWidgets.QWidget()
+            ui = Test2.Ui_Form()
+            ui.setupUi(self.main)
+            self.main.show()######################TODO
             #self.main.show()##############################TODO
 
             # CLOSE SPLASH SCREEN

@@ -584,7 +584,7 @@ class Ui_Form(object):
         self.pushButton_6.setObjectName("pushButton_6")
         self.widget_2 = QtWidgets.QWidget(Form)
         self.widget_2.setGeometry(QtCore.QRect(379, 19, 511, 451))
-        self.widget_2.setStyleSheet("border-image: url(:/newPrefix/Login 2.jpg);")
+        self.widget_2.setStyleSheet("border-image: url(Login 2.jpg);")
         self.widget_2.setObjectName("widget_2")
 
         self.retranslateUi(Form)
@@ -602,14 +602,6 @@ class Ui_Form(object):
         self.pushButton_4.setText(_translate("Form", "M"))
         self.pushButton_5.setText(_translate("Form", "A"))
         self.pushButton_6.setText(_translate("Form", "Sign up"))
-import res_rc
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+
