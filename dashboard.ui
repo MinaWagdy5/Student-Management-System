@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>943</width>
-    <height>637</height>
+    <width>1017</width>
+    <height>673</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,6 +17,9 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(56, 56, 56);</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -35,6 +38,19 @@
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item alignment="Qt::AlignLeft">
            <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	border: none;
+	background-color: rgb(250,0,0);
+	background-color: rgb(255, 106, 0);
+}
+QPushButton:hover {
+	background-color: rgb(0,178,178);
+}
+QPushButton:pressed {	
+	background-color: rgba(0,0,0,0);
+}</string>
+            </property>
             <property name="text">
              <string>PushButton</string>
             </property>
@@ -55,27 +71,25 @@
           <item>
            <widget class="QFrame" name="frame_33">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>200</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>190</width>
+              <width>200</width>
               <height>300</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>190</width>
+              <width>200</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:#50A7BC;
-background-color: rgb(62, 62, 62);
-border-radius:10px;</string>
+             <string notr="true">background-color: rgb(56, 56, 56);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -83,10 +97,7 @@ border-radius:10px;</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_4">
-             <property name="spacing">
-              <number>25</number>
-             </property>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
              <item>
               <widget class="QFrame" name="frame_51">
                <property name="minimumSize">
@@ -112,7 +123,7 @@ border-radius:10px;</string>
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>171</width>
+                  <width>170</width>
                   <height>40</height>
                  </rect>
                 </property>
@@ -146,29 +157,30 @@ border-radius:10px;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QPushButton {
-	border: 2px solid rgb(51,51,51);
-	border-radius: 5px;	
-	color:rgb(255,255,255);
-	background-color: rgb(51,51,51);
-}
-QPushButton:hover {
-	border: 2px solid rgb(0,143,150);
-	background-color: rgb(0,143,150);
-}
-QPushButton:pressed {	
-	border: 2px solid rgb(0,143,150);
-	background-color: rgb(51,51,51);
-}
-
-QPushButton:disabled {	
-	border-radius: 5px;	
-	border: 2px solid rgb(112,112,112);
-	background-color: rgb(112,112,112);
-}</string>
+                 <string notr="true">/* STYLESHEET FOR PUSH BUTTON: START, SAVE, CLOSE, RESTORE, CONNECT, EDIT */
+ QPushButton {
+ border: 2px solid rgb(51,51,51);
+ border-radius: 5px; 
+color:rgb(255,255,255);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:hover {
+ border: 2px solid rgb(0,143,150);
+ background-color: rgb(0,143,150);
+ }
+ QPushButton:pressed {   
+border: 2px solid rgb(0,143,150);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:disabled {  
+border-radius: 5px; 
+border: 2px solid rgb(112,112,112);
+ background-color: rgb(112,112,112);
+ }
+ /* SEE THE EFFECT BELOW*/</string>
                 </property>
                 <property name="text">
-                 <string>dashboard</string>
+                 <string/>
                 </property>
                 <property name="icon">
                  <iconset>
@@ -257,20 +269,27 @@ border-bottom-right-radius:7px;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QPushButton {
-	color: rgb(0, 0, 127);
-	border: none;
-	background-color: rgba(255,255,255);
-	border-radius: 10px
-
-}
-QPushButton:hover {
-	border: 1px solid #001f3f; /* Navy blue border on hover */
-    border-radius: 5px; /* Optional: Add border-radius for a rounded look */
-}
-QPushButton:pressed {	
-	background-color: rgba(0,0,0,0);
-}</string>
+                 <string notr="true">/* STYLESHEET FOR PUSH BUTTON: START, SAVE, CLOSE, RESTORE, CONNECT, EDIT */
+ QPushButton {
+ border: 2px solid rgb(51,51,51);
+ border-radius: 5px; 
+color:rgb(255,255,255);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:hover {
+ border: 2px solid rgb(0,143,150);
+ background-color: rgb(0,143,150);
+ }
+ QPushButton:pressed {   
+border: 2px solid rgb(0,143,150);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:disabled {  
+border-radius: 5px; 
+border: 2px solid rgb(112,112,112);
+ background-color: rgb(112,112,112);
+ }
+ /* SEE THE EFFECT BELOW*/</string>
                 </property>
                 <property name="text">
                  <string>Students</string>
@@ -362,20 +381,27 @@ border-bottom-right-radius:7px;</string>
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QPushButton {
-	color: rgb(0, 0, 127);
-	border: none;
-	background-color: rgba(255,255,255);
-	border-radius: 10px
-
-}
-QPushButton:hover {
-	border: 1px solid #001f3f; /* Navy blue border on hover */
-    border-radius: 5px; /* Optional: Add border-radius for a rounded look */
-}
-QPushButton:pressed {	
-	background-color: rgba(0,0,0,0);
-}</string>
+                 <string notr="true">/* STYLESHEET FOR PUSH BUTTON: START, SAVE, CLOSE, RESTORE, CONNECT, EDIT */
+ QPushButton {
+ border: 2px solid rgb(51,51,51);
+ border-radius: 5px; 
+color:rgb(255,255,255);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:hover {
+ border: 2px solid rgb(0,143,150);
+ background-color: rgb(0,143,150);
+ }
+ QPushButton:pressed {   
+border: 2px solid rgb(0,143,150);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:disabled {  
+border-radius: 5px; 
+border: 2px solid rgb(112,112,112);
+ background-color: rgb(112,112,112);
+ }
+ /* SEE THE EFFECT BELOW*/</string>
                 </property>
                 <property name="text">
                  <string>Staff</string>
@@ -433,7 +459,7 @@ QPushButton:pressed {
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>84</width>
+                  <width>0</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -453,16 +479,27 @@ QPushButton:pressed {
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QPushButton {
-    background-color: #F0F0F0;
-    border: 2px solid #8f8f91;
-    border-radius: 6px;
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: #D0D0D0;
-}</string>
+                 <string notr="true">/* STYLESHEET FOR PUSH BUTTON: START, SAVE, CLOSE, RESTORE, CONNECT, EDIT */
+ QPushButton {
+ border: 2px solid rgb(51,51,51);
+ border-radius: 5px; 
+color:rgb(255,255,255);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:hover {
+ border: 2px solid rgb(0,143,150);
+ background-color: rgb(0,143,150);
+ }
+ QPushButton:pressed {   
+border: 2px solid rgb(0,143,150);
+ background-color: rgb(51,51,51);
+ }
+ QPushButton:disabled {  
+border-radius: 5px; 
+border: 2px solid rgb(112,112,112);
+ background-color: rgb(112,112,112);
+ }
+ /* SEE THE EFFECT BELOW*/</string>
                 </property>
                 <property name="text">
                  <string>Class</string>
@@ -472,16 +509,6 @@ QPushButton:pressed {
                   <normaloff>../../trial2/Iconstica_v1.0.0-Free_Package/svg/filled/graduation-cap.svg</normaloff>../../trial2/Iconstica_v1.0.0-Free_Package/svg/filled/graduation-cap.svg</iconset>
                 </property>
                </widget>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="frame_7">
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
               </widget>
              </item>
             </layout>
@@ -511,7 +538,9 @@ QPushButton:pressed {
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background:rgb(91,90,90);</string>
+             <string notr="true">border-color: rgb(91,90,90);
+background:rgb(91,90,90);
+selection-color: rgb(0, 0, 0);</string>
             </property>
             <property name="currentIndex">
              <number>3</number>
@@ -704,7 +733,7 @@ QPushButton:pressed {
                  <item>
                   <widget class="QTabWidget" name="Prof_Tab">
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <widget class="QWidget" name="Add_Prof_Tab">
                     <attribute name="icon">
@@ -1005,7 +1034,7 @@ QPushButton:pressed {
               <item>
                <widget class="QTabWidget" name="Class_Search_Bar3_Btn">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="Add_Prof_Class_Tab">
                  <attribute name="icon">
@@ -1176,9 +1205,44 @@ QPushButton:pressed {
                 <layout class="QVBoxLayout" name="verticalLayout_16">
                  <item>
                   <widget class="QTabWidget" name="Student_Tab">
-                   <property name="currentIndex">
-                    <number>0</number>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
+                   <property name="currentIndex">
+                    <number>1</number>
+                   </property>
+                   <widget class="QWidget" name="Search_Student_Tab">
+                    <attribute name="icon">
+                     <iconset>
+                      <normaloff>../../trial2/Iconstica_v1.0.0-Free_Package/svg/filled/search.svg</normaloff>../../trial2/Iconstica_v1.0.0-Free_Package/svg/filled/search.svg</iconset>
+                    </attribute>
+                    <attribute name="title">
+                     <string>search</string>
+                    </attribute>
+                    <layout class="QGridLayout" name="gridLayout_9">
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="Student_Search_Btn">
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../../.designer/Iconstica_v1.0.0-Free_Package/svg/line/search.svg</normaloff>../../.designer/Iconstica_v1.0.0-Free_Package/svg/line/search.svg</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="Student_SearchBar"/>
+                     </item>
+                     <item row="1" column="0" colspan="2">
+                      <widget class="QListWidget" name="Student_Search_Result">
+                       <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
                    <widget class="QWidget" name="Add_Student_Tab">
                     <attribute name="icon">
                      <iconset>
@@ -1190,8 +1254,8 @@ QPushButton:pressed {
                     <layout class="QVBoxLayout" name="verticalLayout">
                      <item>
                       <layout class="QGridLayout" name="gridLayout_8">
-                       <item row="0" column="3">
-                        <widget class="QFrame" name="frame_41">
+                       <item row="0" column="2">
+                        <widget class="QFrame" name="frame_46">
                          <property name="styleSheet">
                           <string notr="true"> border: 2px solid transparent; /* Set border color to transparent */</string>
                          </property>
@@ -1201,59 +1265,16 @@ QPushButton:pressed {
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_21">
+                         <layout class="QHBoxLayout" name="horizontalLayout_12">
                           <item>
-                           <widget class="QLineEdit" name="Student_LName_LineEdit">
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>26</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QLineEdit {
-	color:rgb(255,255,255);
-	border:2px solid rgb(51,51,51);
-	border-radius:4px;
-	background:rgb(51,51,51);
-}
-
-QLineEdit:disabled {
-	color:rgb(255,255,255);
-	border:2px solid rgb(112,112,112);
-	border-radius:4px;
-	background:rgb(112,112,112);
-}</string>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                       <item row="1" column="2" colspan="2">
-                        <widget class="QFrame" name="frame_42">
-                         <property name="styleSheet">
-                          <string notr="true"> border: 2px solid transparent; /* Set border color to transparent */</string>
-                         </property>
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_23">
-                          <item>
-                           <widget class="QLabel" name="label_30">
-                            <property name="styleSheet">
-                             <string notr="true">color: rgb(255, 255, 255);</string>
-                            </property>
+                           <widget class="QLabel" name="label_34">
                             <property name="text">
-                             <string>mobile</string>
+                             <string>name</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="Student_Mobile_LineEdit">
+                           <widget class="QLineEdit" name="Student_FName_LineEdit">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1262,67 +1283,18 @@ QLineEdit:disabled {
                             </property>
                             <property name="styleSheet">
                              <string notr="true">QLineEdit {
-	color:rgb(255,255,255);
-	border:2px solid rgb(51,51,51);
-	border-radius:4px;
-	background:rgb(51,51,51);
+	border: 2px solid rgb(74, 148, 146);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
 }
-
-QLineEdit:disabled {
-	color:rgb(255,255,255);
-	border:2px solid rgb(112,112,112);
-	border-radius:4px;
-	background:rgb(112,112,112);
-}</string>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                       <item row="3" column="2">
-                        <widget class="QFrame" name="frame_43">
-                         <property name="styleSheet">
-                          <string notr="true"> border: 2px solid transparent; /* Set border color to transparent */</string>
-                         </property>
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_24">
-                          <item>
-                           <widget class="QLabel" name="label_31">
-                            <property name="styleSheet">
-                             <string notr="true">color: rgb(255, 255, 255);</string>
-                            </property>
-                            <property name="text">
-                             <string>grade</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QLineEdit" name="Student_Grade_LineEdit">
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>26</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">QLineEdit {
-	color:rgb(255,255,255);
-	border:2px solid rgb(51,51,51);
-	border-radius:4px;
-	background:rgb(51,51,51);
+QLineEdit:hover {
+	border: 2px solid rgb(252, 255, 29);
 }
-
-QLineEdit:disabled {
-	color:rgb(255,255,255);
-	border:2px solid rgb(112,112,112);
-	border-radius:4px;
-	background:rgb(112,112,112);
+QLineEdit:focus {
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(250, 250, 250);
 }</string>
                             </property>
                            </widget>
@@ -1344,9 +1316,6 @@ QLineEdit:disabled {
                          <layout class="QHBoxLayout" name="horizontalLayout_25">
                           <item>
                            <widget class="QLabel" name="label_32">
-                            <property name="styleSheet">
-                             <string notr="true">color: rgb(255, 255, 255);</string>
-                            </property>
                             <property name="text">
                              <string>age</string>
                             </property>
@@ -1384,9 +1353,6 @@ background-color: rgb(229, 229, 229);</string>
                          <layout class="QHBoxLayout" name="horizontalLayout_26">
                           <item>
                            <widget class="QLabel" name="label_33">
-                            <property name="styleSheet">
-                             <string notr="true">color: rgb(255, 255, 255);</string>
-                            </property>
                             <property name="text">
                              <string>email</string>
                             </property>
@@ -1402,17 +1368,18 @@ background-color: rgb(229, 229, 229);</string>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">QLineEdit {
-	color:rgb(255,255,255);
-	border:2px solid rgb(51,51,51);
-	border-radius:4px;
-	background:rgb(51,51,51);
+	border: 2px solid rgb(74, 148, 146);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
 }
-
-QLineEdit:disabled {
-	color:rgb(255,255,255);
-	border:2px solid rgb(112,112,112);
-	border-radius:4px;
-	background:rgb(112,112,112);
+QLineEdit:hover {
+	border: 2px solid rgb(252, 255, 29);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(250, 250, 250);
 }</string>
                             </property>
                            </widget>
@@ -1420,8 +1387,8 @@ QLineEdit:disabled {
                          </layout>
                         </widget>
                        </item>
-                       <item row="0" column="2">
-                        <widget class="QFrame" name="frame_46">
+                       <item row="3" column="2">
+                        <widget class="QFrame" name="frame_43">
                          <property name="styleSheet">
                           <string notr="true"> border: 2px solid transparent; /* Set border color to transparent */</string>
                          </property>
@@ -1431,19 +1398,16 @@ QLineEdit:disabled {
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_12">
+                         <layout class="QHBoxLayout" name="horizontalLayout_24">
                           <item>
-                           <widget class="QLabel" name="label_34">
-                            <property name="styleSheet">
-                             <string notr="true">color: rgb(255, 255, 255);</string>
-                            </property>
+                           <widget class="QLabel" name="label_31">
                             <property name="text">
-                             <string>name</string>
+                             <string>grade</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="Student_FName_LineEdit">
+                           <widget class="QLineEdit" name="Student_Grade_LineEdit">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1451,27 +1415,109 @@ QLineEdit:disabled {
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">/* Apply styles to QLineEdit */
-QLineEdit {
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(51, 51, 51);
-    border-radius: 4px;
-    background: rgb(51, 51, 51);
+                             <string notr="true">QLineEdit {
+	border: 2px solid rgb(74, 148, 146);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
 }
-
-/* Apply styles to disabled QLineEdit */
-QLineEdit:disabled {
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(112, 112, 112);
-    border-radius: 4px;
-    background: rgb(112, 112, 112);
-}
-
-/* Add border color on hover */
 QLineEdit:hover {
-    border-color: rgb(255, 255, 127);
+	border: 2px solid rgb(252, 255, 29);
 }
-</string>
+QLineEdit:focus {
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(250, 250, 250);
+}</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="0" column="3">
+                        <widget class="QFrame" name="frame_41">
+                         <property name="styleSheet">
+                          <string notr="true"> border: 2px solid transparent; /* Set border color to transparent */</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_21">
+                          <item>
+                           <widget class="QLineEdit" name="Student_LName_LineEdit">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>26</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+	border: 2px solid rgb(74, 148, 146);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(252, 255, 29);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(250, 250, 250);
+}</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="1" column="2" colspan="2">
+                        <widget class="QFrame" name="frame_42">
+                         <property name="styleSheet">
+                          <string notr="true"> border: 2px solid transparent; /* Set border color to transparent */</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_23">
+                          <item>
+                           <widget class="QLabel" name="label_30">
+                            <property name="text">
+                             <string>mobile</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="Student_Mobile_LineEdit">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>26</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+	border: 2px solid rgb(74, 148, 146);
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgb(30, 30, 30);	
+	color: rgb(100, 100, 100);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(252, 255, 29);
+}
+QLineEdit:focus {
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(250, 250, 250);
+}</string>
                             </property>
                            </widget>
                           </item>
@@ -1480,7 +1526,7 @@ QLineEdit:hover {
                        </item>
                       </layout>
                      </item>
-                     <item alignment="Qt::AlignHCenter">
+                     <item>
                       <widget class="QPushButton" name="Student_Add_Btn">
                        <property name="styleSheet">
                         <string notr="true">QPushButton {
@@ -1506,38 +1552,6 @@ QPushButton:disabled {
                        </property>
                        <property name="text">
                         <string>Add</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                   <widget class="QWidget" name="Search_Student_Tab">
-                    <attribute name="icon">
-                     <iconset>
-                      <normaloff>../../trial2/Iconstica_v1.0.0-Free_Package/svg/filled/search.svg</normaloff>../../trial2/Iconstica_v1.0.0-Free_Package/svg/filled/search.svg</iconset>
-                    </attribute>
-                    <attribute name="title">
-                     <string>search</string>
-                    </attribute>
-                    <layout class="QGridLayout" name="gridLayout_9">
-                     <item row="0" column="0">
-                      <widget class="QLineEdit" name="Student_SearchBar"/>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QPushButton" name="Student_Search_Btn">
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="icon">
-                        <iconset>
-                         <normaloff>../../.designer/Iconstica_v1.0.0-Free_Package/svg/line/search.svg</normaloff>../../.designer/Iconstica_v1.0.0-Free_Package/svg/line/search.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0" colspan="2">
-                      <widget class="QListWidget" name="Student_Search_Result">
-                       <property name="frameShape">
-                        <enum>QFrame::NoFrame</enum>
                        </property>
                       </widget>
                      </item>
@@ -1570,13 +1584,15 @@ QPushButton:disabled {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>943</width>
-     <height>20</height>
+     <width>1017</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
