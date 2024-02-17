@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="icons">
+    <file>closeAsset 43.png</file>
+    <file>add.svg</file>
+    <file>show.svg</file>
+    <file>plus.svg</file>
     <file>search.svg</file>
     <file>Class.svg</file>
     <file>staff.svg</file>
@@ -122,6 +126,10 @@
     <file>filled/video.svg</file>
     <file>filled/volume.svg</file>
     <file>filled/wifi.svg</file>
+  </qresource>
+  <qresource prefix="newPrefix"/>
+  <qresource>
+    <file>plus.svg</file>
   </qresource>
   <qresource prefix="images">
     <file>Slide-2-Background-2382517475.jpg</file>
