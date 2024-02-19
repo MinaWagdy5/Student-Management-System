@@ -8,16 +8,25 @@ class Student(Person):
 
     def __init__(self, first_name, last_name, age, mobile, email, grade):
         super().__init__(first_name, last_name, age, mobile, email)
-        self.studentCourses = []
+        #self.studentCourses = []
         self.grade = grade
         self.fullName = first_name + ' ' + last_name
 
     def search(cls, name):
-        if name in cls.representation_student:
-            return cls.representation_student[name]
-        else:
-            # If the key doesn't exist, raise an error or handle it accordingly
-            raise KeyError(f"student '{name}' not found")
+        # if name in cls.representation_student:
+        #     return cls.representation_student[name]
+        # else:
+        #     # If the key doesn't exist, raise an error or handle it accordingly
+        #     raise KeyError(f"student '{name}' not found")
+        with open('students.csv', "r") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row['full_name'])
+                if row['full_name'] == name:
+                    
+                    return row
+            else:
+                raise KeyError(f"student '{name}' not found")
 
     def append_value(cls, key, value, file_name=file_name):
         with open(file_name, 'a', newline='') as file:

@@ -44,8 +44,14 @@ class Ui_MainWindow(object):
         def student_search(self):
                         search_name = self.Student_SearchBar.text()
                         print(search_name)
-                        stud = Student.search( search_name)
-                        print(stud)
+                        stud = Student.search( search_name,search_name)
+                        ## write into labels
+                        self.label_11.setText( stud['first_name'])
+                        self.label_12.setText( stud['last_name'])
+                        self.label_13.setText( stud['mobile_number'])
+                        self.label_14.setText( stud['email'])
+                        self.label_15.setText( stud['grade'])
+                        self.label_16.setText( stud['age'])
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(943, 686)
