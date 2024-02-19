@@ -1,17 +1,14 @@
 from fileinput import filename
-from person import Person
+from learning_management.Person import Person
 import csv
 
 class professor(Person):
     file_name = 'professors.csv'
     representation_professor= {}
-    def __init__(self, first_name, last_name, age, mobile, email,gender, professorID, position, departement, professorCourses):
+    def __init__(self, first_name, last_name, age, mobile, email, title):
         super().__init__(first_name, last_name, age, mobile, email)
-        self.professorID = professorID
-        self.departement = departement
         self.professorCourses = []
-        self.gender = gender
-        self.position = position
+        self.title = title
         self.fullName = first_name + ' ' + last_name
     
     def search(cls, key):
@@ -35,8 +32,7 @@ class professor(Person):
                 print(row)
 
     def __str__(self):
-        return f"(first_name= {self.firstName},last_name= {self.lastName},age= {self.age},mobile= {self.mobile},email= {self.email},gender= {self.gender},professorID= {self.professorID},position= {self.position},departement= {self.departement},professorCourses= {self.professorCourses})"
-
+        return f"(first_name= {self.firstName},last_name= {self.lastName},age= {self.age},mobile= {self.mobile},email= {self.email},title= {self.title})"
     def professorID(self, professorID):
         self.professorID= professorID
 

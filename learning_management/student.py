@@ -12,12 +12,12 @@ class Student(Person):
         self.grade = grade
         self.fullName = first_name + ' ' + last_name
 
-    def search(cls, key):
-        if key in cls.representation_student:
-            return cls.representation_student[key]
+    def search(cls, name):
+        if name in cls.representation_student:
+            return cls.representation_student[name]
         else:
             # If the key doesn't exist, raise an error or handle it accordingly
-            raise KeyError(f"student '{key}' not found")
+            raise KeyError(f"student '{name}' not found")
 
     def append_value(cls, key, value, file_name=file_name):
         with open(file_name, 'a', newline='') as file:
