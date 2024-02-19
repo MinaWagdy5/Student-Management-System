@@ -52,6 +52,17 @@ class Ui_MainWindow(object):
                         self.label_14.setText( stud['email'])
                         self.label_15.setText( stud['grade'])
                         self.label_16.setText( stud['age'])
+        def prof_search(self):
+                        search_name = self.Prof_SearchBar.text()
+                        print(search_name)
+                        prof = professor.search( search_name,search_name)
+                        ## write into labels
+                        self.label_17.setText( prof['first_name'])
+                        self.label_25.setText( prof['last_name'])
+                        self.label_26.setText( prof['mobile_number'])
+                        self.label_19.setText( prof['email'])
+                        self.label_24.setText( prof['title'])
+                        self.label_18.setText( prof['age'])
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(943, 686)
@@ -1776,6 +1787,8 @@ class Ui_MainWindow(object):
                 self.Student_Add_Btn.clicked.connect(self.add_student)
                 self.Student_Search_Btn.clicked.connect(self.student_search)
                 self.Prof_Add_Btn.clicked.connect(self.add_prof)
+                ##this is prof search btn
+                self.Student_Search_Btn_2.clicked.connect(self.prof_search)
 
                 font = QtGui.QFont()
                 font.setFamily("Poppins")

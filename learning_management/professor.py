@@ -11,12 +11,21 @@ class professor(Person):
         self.title = title
         self.fullName = first_name + ' ' + last_name
     
-    def search(cls, key):
-        if key in cls.representation_professor:
-            return cls.representation_professor[key]
-        else:
-            # If the key doesn't exist, raise an error or handle it accordingly
-            raise KeyError(f"professor '{key}' not found")
+    def search(cls, name):
+        # if name in cls.representation_student:
+        #     return cls.representation_student[name]
+        # else:
+        #     # If the key doesn't exist, raise an error or handle it accordingly
+        #     raise KeyError(f"student '{name}' not found")
+        with open('professors.csv', "r") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row['full_name'])
+                if row['full_name'] == name:
+                    
+                    return row
+            else:
+                raise KeyError(f"professor '{name}' not found")
         
     def append_value(cls, key, value, file_name=file_name):
         with open(file_name, 'a', newline='') as file:
