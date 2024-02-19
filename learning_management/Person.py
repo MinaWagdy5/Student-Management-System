@@ -35,4 +35,3 @@ class Person:
 
     def setEmail(self, email):
         self.email = email
-

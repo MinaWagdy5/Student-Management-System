@@ -1,16 +1,14 @@
-from person import person
+from learning_management.Person import Person
 import csv
 
 
-class Student(person):
+class Student(Person):
     file_name = 'students.csv'
-    representation_student= {}
-    def __init__(self, first_name, last_name, age, mobile, email,gender, studentID, grade, departement, studentCourses):
+    representation_student = {}
+
+    def __init__(self, first_name, last_name, age, mobile, email, grade):
         super().__init__(first_name, last_name, age, mobile, email)
-        self.studentID = studentID
-        self.departement = departement
         self.studentCourses = []
-        self.gender = gender
         self.grade = grade
         self.fullName = first_name + ' ' + last_name
 
@@ -20,23 +18,23 @@ class Student(person):
         else:
             # If the key doesn't exist, raise an error or handle it accordingly
             raise KeyError(f"student '{key}' not found")
-        
+
     def append_value(cls, key, value, file_name=file_name):
         with open(file_name, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(value)
-        cls.representation_student[key] = value  # if there is name duplicated also append as a list
+        # if there is name duplicated also append as a list
+        cls.representation_student[key] = value
      # also if the name in not found w append the name as a key and value of his data
 
-    def printing_all_students(cls,file_name= file_name):
+    def printing_all_students(cls, file_name=file_name):
         with open(file_name, 'r') as file:
             reader = csv.reader(file)
             for row in reader:
                 print(row)
 
-
     def __str__(self):
-        return f"(first_name= {self.firstName},last_name= {self.lastName},age= {self.age},mobile= {self.mobile},email= {self.email},gender= {self.gender},studentID= {self.studentID},grade= {self.grade},departement= {self.departement},studentCourses= {self.studentCourses})"
+        return f"(first_name= {self.firstName},last_name= {self.lastName},age= {self.age},mobile= {self.mobile},email= {self.email},grade= {self.grade})"
 
     # def __repr__(self):
     #     return f"(name='{self.name}', age={self.age})"
@@ -52,7 +50,7 @@ class Student(person):
 
     def getDepartement(self):
         return self.departement
-    
+
     def getGender(self):
         return self.gender
 

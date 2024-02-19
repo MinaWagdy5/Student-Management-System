@@ -9,9 +9,25 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from learning_management.student import Student
 
 
 class Ui_MainWindow(object):
+    def add_student(self):
+    
+    
+                student_FName =self.Student_FName_LineEdit.text()
+                student_LName =self.Student_LName_LineEdit.text()
+                student_Mobile =self.Student_Mobile_LineEdit.text()
+                student_Email =self.Student_Email_LineEdit.text()
+                student_Grade =self.Student_Grade_LineEdit.text()
+                student_Age =self.Student_Age_SpinBox.text()
+                stud = Student(student_FName, student_LName, student_Age , student_Mobile, student_Email,student_Grade )
+                print(stud)
+                attribute_values= []
+                for attr_name , attr_value in stud.__dict__.items():
+                        attribute_values.append(attr_value)
+                stud.append_value('student_FName'+' '+'student_LName' , attribute_values)
     def goToPage2(self):
         self.mainBodyTabs.setCurrentIndex(3)
     def setupUi(self, MainWindow):
@@ -1734,6 +1750,9 @@ class Ui_MainWindow(object):
         self.Students_Btn.setMinimumSize(QtCore.QSize(160, 40))
         self.Students_Btn.setMaximumSize(QtCore.QSize(200, 0))
         self.Students_Btn.clicked.connect(self.goToPage2)
+        
+        self.Student_Add_Btn.clicked.connect(self.add_student)
+        #self.Student_Search_Btn.clicked.connect(self.)
 
         font = QtGui.QFont()
         font.setFamily("Poppins")
