@@ -1,12 +1,5 @@
-first_name,last_name,age,mobile_number,email,,grade,full_name
-mon,mon,55,5555,5555555,[],55,mon mon
-mon,mon,55,5555,5555555,[],55,mon mon
-mon,mon,55,5555,5555555,[],55,mon mon
-mon,mon,55,5555,5555555,[],55,mon mon
-mon,mon,55,5555,5555555,[],55,mon mon
-mon,mon,55,5555,5555555,[],55,mon mon
-mon,mon,55,5555,5555555,[],55,mon mon
-mina,mina,55,555,mina,[],ii,mina mina
-momnn,monmomn,50,1111111,mina,[],44,momnn monmomn
-mina,raafat,21,128,mina@email.com,[],75,mina raafat
-mina,raafat,21,128,mina@email.com,[],75,mina raafat
+first_name,last_name,age,mobile_number,email,grade,full_name
+mina,heinein,22,01145170391,mon@mon.com,A,mina heinein
+mo,abdelaty,5,124,emai;,b,mo abdelaty
+mina,raafat,20,01145170391,mon@gmail.com,a,mina raafat
+mina,raafat,20,01145170391,mon@gmail.com,a,mina raafat

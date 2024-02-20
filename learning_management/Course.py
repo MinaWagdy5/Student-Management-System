@@ -1,34 +1,52 @@
+import csv
+from learning_management.Person import Person
+from learning_management.student import Student
 class Course:
     representation_course= {}
-    def __init__(self, courseID):
-        self.courseID = courseID
-        self.courseName = ""
-        self.totalGrade = 0
-        self.lectureHall = ""
-        self.lectureDay = 0
-        self.lectureTime = 0
-        self.department = ""
-        self.totalGrades = 0.0
-        self.totalStudents = 0
-        self.averageGrade = 0.0
-        self.passedStudents = 0
-        self.passRatio = 0.0
-        self.students = {}
-        self.staff = []
+    file_name = 'class.csv'
+    def __init__(self, course_name , hall , course_code, course_time): #, hall , course_code, course_time
+        self.courseName = course_name
+        self.hall = hall
+        self.course_code = course_code
+        self.course_time =course_time
+        # students_string=','.join(self.students)
+        # students_string=','.join(self.students)
+        # # self.data = [course_name , hall , course_code, course_time,f"({self.students}), f"({self.staff})]
 
-    def search(cls, key):
-        if key in cls.representation_course:
-            return cls.representation_course[key]
-        else:
-            # If the key doesn't exist, raise an error or handle it accordingly
-            raise KeyError(f"course '{key}' not found")
+    def add_stud_toClass(cls,student_full_name , class_name):
+        student_data = Student.search(student_full_name)
         
-    def append_value(cls, key, value):
-        cls.representation_course[key] = value  # if there is name duplicated also append as a list
-     # also if the name in not found w append the name as a key and value of his data
 
-    def getCourseID(self):
-        return self.courseID
+    
+
+    def search(cls, name):
+        # if name in cls.representation_student:
+        #     return cls.representation_student[name]
+        # else:
+        #     # If the key doesn't exist, raise an error or handle it accordingly
+        #     raise KeyError(f"student '{name}' not found")
+        with open('course.csv', "r") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row['course_name'])
+                if row['course_name'] == name:
+                    
+                    return row
+            else:
+                raise KeyError(f"course '{name}' not found")
+
+        
+    def append_value(cls, key, value, file_name=file_name):
+        with open(file_name, 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(value)
+        # if there is name duplicated also append as a list
+        cls.representation_course[key] = value
+
+    
+
+    # def getCourseID(self):
+    #     return self.courseID
 
     def getCourseName(self):
         return self.courseName
