@@ -9,17 +9,23 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import Login
+import sqlite3
 
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(450, 487)
+        # make the window frameless
+        Form.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        Form.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(40, 30, 371, 451))
-        self.label_2.setStyleSheet("background-color: rgb(51, 51, 51);")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
+        # make the window with rounded corners
+        self.label_2.setStyleSheet("background-color:rgba(51, 51, 51, 255);\n"
+"border-radius:15px;")
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(50, 50, 351, 431))
         self.label_3.setStyleSheet("background-color:rgba(0, 0, 0, 100);\n"
@@ -141,6 +147,32 @@ class Ui_Form(object):
 "    background-color: rgb(112,112,112);\n"
 "}")
         self.pushButton_7.setObjectName("pushButton_7")
+        self.pushButton_7.clicked.connect(self.sign_up)
+        # make a push button under the push button 7 to close the window and return to the login page
+        self.pushButton_8 = QtWidgets.QPushButton(Form , clicked = lambda :self.Back_to_login(Form))
+        self.pushButton_8.setGeometry(QtCore.QRect(120, 410, 201, 41)
+        )
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_8.setFont(font)
+        self.pushButton_8.setStyleSheet("QPushButton {\n"
+"    border-radius: 5px;    \n"
+"    color:rgb(255,255,255);\n" 
+"    background-color: rgb(51,51,51);\n")
+        self.pushButton_8.setText("Back to Login")
+        self.pushButton_8.setObjectName("pushButton_8")
+        self.shadow = QtWidgets.QGraphicsDropShadowEffect()
+        self.shadow.setBlurRadius(20)
+        self.shadow.setXOffset(0)
+        self.shadow.setYOffset(0)
+        # change color to yellow
+        self.shadow.setColor(QtGui.QColor(255, 255, 255))
+        Form.setGraphicsEffect(self.shadow)
+
+    # make the window draggable
+
+
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -148,18 +180,143 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_5.setText(_translate("Form", "Welcome!"))
+        self.label_5.setText(_translate("Form", " Sign Up!"))
         self.lineEdit.setPlaceholderText(_translate("Form", "  User Name"))
         self.lineEdit_2.setPlaceholderText(_translate("Form", "  New Password"))
         self.lineEdit_3.setPlaceholderText(_translate("Form", "  New Password again"))
         self.pushButton_7.setText(_translate("Form", "Sign up"))
+    def Back_to_login(self,Form):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Login.Ui_Form()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        Form.close()
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+    def sign_up(self):
+        # get the user name and the password
+        user_name = self.lineEdit.text()
+        password = self.lineEdit_2.text()
+        password_again = self.lineEdit_3.text()
+        # check if the user name and the password are not empty
+        if user_name and password and password_again:
+            # check if the password and the password again are the same
+            if password == password_again:
+                # check if the username already exist
+                conn = sqlite3.connect('database.db')
+                c = conn.cursor()
+                c.execute("SELECT * FROM users WHERE username=?", (user_name,))
+                if c.fetchall():
+                    _translate = QtCore.QCoreApplication.translate
+
+                    self.lineEdit.setStyleSheet("QLineEdit {\n"
+                                        "    border: 2px solid rgb(74, 148, 146);\n"
+                                        "    border-radius: 5px;\n"
+                                        "    padding: 10px;\n"
+                                        "    background-color: rgb(30, 30, 30);    \n"
+                                        "    color: rgb(255, 0, 0);\n"
+                                        "}\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(153, 255, 240);\n"
+                                        "\n"
+                                        "}\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid rgb(255, 255, 0);\n"
+                                        "\n"
+                                        "    color: rgb(250, 250, 250);\n"
+                                        "}")
+                    self.lineEdit.clear()
+                    self.lineEdit.setPlaceholderText(_translate("Form", "  Already Exists! "))
+                    return
+                # open the database sqlite3 to add the user name and the password
+                conn = sqlite3.connect('database.db')
+                c = conn.cursor()
+                # create the table if not exists
+                c.execute('''CREATE TABLE IF NOT EXISTS users (user_name text, password text)''')
+
+                # add the user name and the password
+                c.execute("INSERT INTO users (username, password) VALUES (?, ?)", (user_name, password))
+                conn.commit()
+                conn.close()
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Login.Ui_Form()
+                self.ui.setupUi(self.window)
+                self.window.show()
+
+            else:
+                # show message box that the password and the password again are not the same
+                _translate = QtCore.QCoreApplication.translate
+
+                self.lineEdit_3.setStyleSheet("QLineEdit {\n"
+                                            "    border: 2px solid rgb(74, 148, 146);\n"
+                                            "    border-radius: 5px;\n"
+                                            "    padding: 10px;\n"
+                                            "    background-color: rgb(30, 30, 30);    \n"
+                                            "    color: rgb(255, 0, 0);\n"
+                                            "}\n"
+                                            "QLineEdit:hover {\n"
+                                            "    border: 2px solid rgb(153, 255, 240);\n"
+                                            "\n"
+                                            "}\n"
+                                            "QLineEdit:focus {\n"
+                                            "    border: 2px solid rgb(255, 255, 0);\n"
+                                            "\n"
+                                            "    color: rgb(250, 250, 250);\n"
+                                            "}")
+                self.lineEdit_3.clear()
+                self.lineEdit_3.setPlaceholderText(_translate("Form", "  Not matched! "))
+        else:
+            # show message box that the user name and the password are empty
+            _translate = QtCore.QCoreApplication.translate
+
+            self.lineEdit.setStyleSheet("QLineEdit {\n"
+                                          "    border: 2px solid rgb(74, 148, 146);\n"
+                                          "    border-radius: 5px;\n"
+                                          "    padding: 10px;\n"
+                                          "    background-color: rgb(30, 30, 30);    \n"
+                                          "    color: rgb(255, 0, 0);\n"
+                                          "}\n"
+                                          "QLineEdit:hover {\n"
+                                          "    border: 2px solid rgb(153, 255, 240);\n"
+                                          "\n"
+                                          "}\n"
+                                          "QLineEdit:focus {\n"
+                                          "    border: 2px solid rgb(255, 255, 0);\n"
+                                          "\n"
+                                          "    color: rgb(250, 250, 250);\n"
+                                          "}")
+            self.lineEdit_2.setStyleSheet("QLineEdit {\n"
+                                        "    border: 2px solid rgb(74, 148, 146);\n"
+                                        "    border-radius: 5px;\n"
+                                        "    padding: 10px;\n"
+                                        "    background-color: rgb(30, 30, 30);    \n"
+                                        "    color: rgb(255, 0, 0);\n"
+                                        "}\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(153, 255, 240);\n"
+                                        "\n"
+                                        "}\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid rgb(255, 255, 0);\n"
+                                        "\n"
+                                        "    color: rgb(250, 250, 250);\n"
+                                        "}")
+            self.lineEdit_3.setStyleSheet("QLineEdit {\n"
+                                        "    border: 2px solid rgb(74, 148, 146);\n"
+                                        "    border-radius: 5px;\n"
+                                        "    padding: 10px;\n"
+                                        "    background-color: rgb(30, 30, 30);    \n"
+                                        "    color: rgb(255, 0, 0);\n"
+                                        "}\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(153, 255, 240);\n"
+                                        "\n"
+                                        "}\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid rgb(255, 255, 0);\n"
+                                        "\n"
+                                        "    color: rgb(250, 250, 250);\n"
+                                        "}")
+            self.lineEdit.setPlaceholderText(_translate("Form", "  Maybe empty! "))
+            self.lineEdit_2.setPlaceholderText(_translate("Form", "  Maybe empty! "))
+            self.lineEdit_3.setPlaceholderText(_translate("Form", "  Maybe empty! "))
