@@ -18,7 +18,7 @@ from learning_management.prof_course import Prof_course
 from learning_management.Course import Course
 import pandas as pd
 import csv
-from PyQt5.QtWidgets import QTableWidgetItem
+from PyQt5.QtWidgets import QTableWidgetItem, QHeaderView
 
 
 class Ui_MainWindow(object):
@@ -152,11 +152,13 @@ class Ui_MainWindow(object):
         student_df = pd.read_csv("student_courses.csv")
         professor_df = pd.read_csv("professor_courses.csv")
         class_df = pd.read_csv("class.csv")
+        filtered_df = class_df[class_df['course_name'] == self.Class_SearchBar.text()]
+
 
         # Display the results in separate tables
         self.display_results(student_df, self.class_search_result)
         self.display_results(professor_df, self.professor_TW)
-        self.display_results(class_df, self.class_info_TW)
+        self.display_results(filtered_df, self.class_info_TW)
 
     def display_results(self, data, table_widget):
         # Clear previous contents of the table
@@ -178,6 +180,14 @@ class Ui_MainWindow(object):
             for col_index, value in enumerate(row_data):
                 item = QTableWidgetItem(str(value))
                 table_widget.setItem(row_index, col_index, item)
+        # Set the stretch last section property of the horizontal header
+        horizontal_header = self.class_search_result.horizontalHeader()
+        horizontal_header2 = self.professor_TW.horizontalHeader()
+        horizontal_header3 = self.class_info_TW.horizontalHeader()
+        
+        horizontal_header.setSectionResizeMode(QHeaderView.Stretch)
+        horizontal_header2.setSectionResizeMode(QHeaderView.Stretch)
+        horizontal_header3.setSectionResizeMode(QHeaderView.Stretch)
     def handle_item_click(self):
          selected_item = self.class_search_result.currentItem().text()
          self.Student_SearchBar.setText(selected_item)
