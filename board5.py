@@ -71,12 +71,15 @@ class Ui_MainWindow(object):
                           'student_LName', attribute_values)
 
     def goToPage2(self):
+        self.update_count()
         self.mainBodyTabs.setCurrentIndex(3)
 
     def goToPage_prof(self):
+        self.update_count()
         self.mainBodyTabs.setCurrentIndex(1)
 
     def goToPage_class(self):
+        self.update_count()
         self.mainBodyTabs.setCurrentIndex(2)
 
     def student_search(self):
@@ -103,6 +106,7 @@ class Ui_MainWindow(object):
         self.label_24.setText(prof['title'])
         self.label_18.setText(prof['age'])
     def goToPage_dash(self):
+        self.update_count()
         self.mainBodyTabs.setCurrentIndex(0)
     def add_stud_class(self):
         student_name = self.Student_Search_Bar2.text()
@@ -111,12 +115,14 @@ class Ui_MainWindow(object):
         # Check if the student exists
         student_df = pd.read_csv("students.csv")
         if student_name not in student_df['full_name'].values:
+            self.label_50.setText("Student does not exist")
             print("Student does not exist")
             return
         
         # Check if the class exists
         class_df = pd.read_csv("class.csv")
         if class_name not in class_df['course_name'].values:
+            self.label_50.setText("Class does not exist")
             print("Class does not exist")
             return
 
@@ -134,11 +140,13 @@ class Ui_MainWindow(object):
         professor_df = pd.read_csv("professors.csv")
         if prof_name not in professor_df['full_name'].values:
             print("Professor does not exist")
+            self.label_49.setText("Professor does not exist")
             return
         
         # Check if the class exists
         class_df = pd.read_csv("class.csv")
         if class_name not in class_df['course_name'].values:
+            self.label_49.setText("Class does not exist")
             print("Class does not exist")
             return
 
@@ -153,11 +161,14 @@ class Ui_MainWindow(object):
         professor_df = pd.read_csv("professor_courses.csv")
         class_df = pd.read_csv("class.csv")
         filtered_df = class_df[class_df['course_name'] == self.Class_SearchBar.text()]
+        filtered_df2 = student_df[student_df['course_name'] == self.Class_SearchBar.text()]
+        filtered_df3 = professor_df[professor_df['course_name'] == self.Class_SearchBar.text()]
+
 
 
         # Display the results in separate tables
-        self.display_results(student_df, self.class_search_result)
-        self.display_results(professor_df, self.professor_TW)
+        self.display_results(filtered_df2, self.class_search_result)
+        self.display_results(filtered_df3, self.professor_TW)
         self.display_results(filtered_df, self.class_info_TW)
 
     def display_results(self, data, table_widget):
@@ -262,3 +273,21 @@ class Ui_MainWindow(object):
         except Exception as e:
             print("Error:", e)
             return None
+    def count(self, target_filename):
+        student_df = pd.read_csv(target_filename)
+        return len(student_df)
+    def update_count(self):
+         self.label_46.setText( "     " +str(self.count('professors.csv'))+"<br>Total Professors")
+         self.label_48.setText( "     " +str(self.count('class.csv'))+"<br>Total Courses")
+         self.label_10.setText( "     " +str(self.count('students.csv'))+"<br>Total Students")
+         self.label_9.setText("     " )
+         self.label.setText("     ")
+         self.label_2.setText("     ")
+         self.label_7.setText("     ")
+         self.label_8.setText("     ")
+         self.label_50.setText("     ")
+         self.label_49.setText("     ")
+         self.label_51.setText("     ")
+         self.label_5.setText("     ")
+         self.label_6.setText("     ")
+         
