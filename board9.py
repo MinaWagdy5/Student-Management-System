@@ -15,14 +15,16 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(963, 633)
+        MainWindow.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_6.setObjectName("gridLayout_6")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setEnabled(True)
-        self.frame.setStyleSheet("background-color: rgb(56, 56, 56);\n"
-"")
+        self.frame.setStyleSheet("background-color: rgb(56, 56, 56);\n border-radius:15px;\n")
+
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -65,6 +67,8 @@ class Ui_MainWindow(object):
         icon.addPixmap(QtGui.QPixmap(":/icons/closeAsset 43.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setObjectName("pushButton")
+        # close the window if clicked
+        self.pushButton.clicked.connect(QtWidgets.qApp.quit)
         self.gridLayout_11.addWidget(self.pushButton, 0, 1, 1, 1)
         self.frame_6 = QtWidgets.QFrame(self.frame)
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
