@@ -118,7 +118,7 @@ class Ui_Form(object):
         self.lineEdit_3.setText("")
         self.lineEdit_3.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.pushButton_7 = QtWidgets.QPushButton(Form)
+        self.pushButton_7 = QtWidgets.QPushButton(Form , clicked = lambda :self.sign_up(Form))
         self.pushButton_7.setGeometry(QtCore.QRect(120, 360, 201, 41))
         font = QtGui.QFont()
         font.setBold(True)
@@ -147,7 +147,6 @@ class Ui_Form(object):
 "    background-color: rgb(112,112,112);\n"
 "}")
         self.pushButton_7.setObjectName("pushButton_7")
-        self.pushButton_7.clicked.connect(self.sign_up)
         # make a push button under the push button 7 to close the window and return to the login page
         self.pushButton_8 = QtWidgets.QPushButton(Form , clicked = lambda :self.Back_to_login(Form))
         self.pushButton_8.setGeometry(QtCore.QRect(120, 410, 201, 41)
@@ -193,7 +192,7 @@ class Ui_Form(object):
         Form.close()
 
 
-    def sign_up(self):
+    def sign_up(self,Form):
         # get the user name and the password
         user_name = self.lineEdit.text()
         password = self.lineEdit_2.text()
@@ -228,7 +227,7 @@ class Ui_Form(object):
                     self.lineEdit.clear()
                     self.lineEdit.setPlaceholderText(_translate("Form", "  Already Exists! "))
                     return
-                # open the database sqlite3 to add the user name and the password
+                # open the database sqlite3 to add the username and the password
                 conn = sqlite3.connect('database.db')
                 c = conn.cursor()
                 # create the table if not exists
@@ -242,6 +241,7 @@ class Ui_Form(object):
                 self.ui = Login.Ui_Form()
                 self.ui.setupUi(self.window)
                 self.window.show()
+                Form.close()
 
             else:
                 # show message box that the password and the password again are not the same
